@@ -1,5 +1,5 @@
 Analysis & Synthesis report for TowerDefence
-Sun Jan 20 01:57:24 2013
+Sun Jan 20 02:20:30 2013
 Quartus II 32-bit Version 12.0 Build 263 08/02/2012 Service Pack 2 SJ Web Edition
 
 
@@ -291,7 +291,7 @@ applicable agreement for further details.
 +------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                       ;
 +------------------------------------+-----------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sun Jan 20 01:57:23 2013         ;
+; Analysis & Synthesis Status        ; Successful - Sun Jan 20 02:20:29 2013         ;
 ; Quartus II 32-bit Version          ; 12.0 Build 263 08/02/2012 SP 2 SJ Web Edition ;
 ; Revision Name                      ; TowerDefence                                  ;
 ; Top-level Entity Name              ; TowerDefence                                  ;
@@ -3152,15 +3152,6 @@ Encoding Type:  One-Hot
 ; 11:1               ; 2 bits    ; 14 LEs        ; 4 LEs                ; 10 LEs                 ; |TowerDefence|nios_system:niosII|nios_system_sdram:sdram|Selector35                                                                                                                                                                                                                                                                                                                         ;                            ;
 ; 16:1               ; 2 bits    ; 20 LEs        ; 8 LEs                ; 12 LEs                 ; |TowerDefence|nios_system:niosII|nios_system_sdram:sdram|Selector27                                                                                                                                                                                                                                                                                                                         ;                            ;
 ; 20:1               ; 4 bits    ; 52 LEs        ; 48 LEs               ; 4 LEs                  ; |TowerDefence|pzdyqx:nabboc|pzdyqx_impl:pzdyqx_impl_inst|VELJ8121:JDCF0099|DJFL8584[2]                                                                                                                                                                                                                                                                                                      ;                            ;
-; 6:1                ; 5 bits    ; 20 LEs        ; 5 LEs                ; 15 LEs                 ; |TowerDefence|sld_hub:auto_hub|irf_reg[3][1]                                                                                                                                                                                                                                                                                                                                                ;                            ;
-; 6:1                ; 5 bits    ; 20 LEs        ; 5 LEs                ; 15 LEs                 ; |TowerDefence|sld_hub:auto_hub|irf_reg[2][0]                                                                                                                                                                                                                                                                                                                                                ;                            ;
-; 6:1                ; 5 bits    ; 20 LEs        ; 5 LEs                ; 15 LEs                 ; |TowerDefence|sld_hub:auto_hub|irf_reg[1][0]                                                                                                                                                                                                                                                                                                                                                ;                            ;
-; 5:1                ; 6 bits    ; 18 LEs        ; 6 LEs                ; 12 LEs                 ; |TowerDefence|sld_hub:auto_hub|sld_rom_sr:hub_info_reg|word_counter[2]                                                                                                                                                                                                                                                                                                                      ;                            ;
-; 6:1                ; 5 bits    ; 20 LEs        ; 5 LEs                ; 15 LEs                 ; |TowerDefence|sld_hub:auto_hub|shadow_irf_reg[3][4]                                                                                                                                                                                                                                                                                                                                         ;                            ;
-; 6:1                ; 5 bits    ; 20 LEs        ; 5 LEs                ; 15 LEs                 ; |TowerDefence|sld_hub:auto_hub|shadow_irf_reg[2][1]                                                                                                                                                                                                                                                                                                                                         ;                            ;
-; 6:1                ; 5 bits    ; 20 LEs        ; 5 LEs                ; 15 LEs                 ; |TowerDefence|sld_hub:auto_hub|shadow_irf_reg[1][4]                                                                                                                                                                                                                                                                                                                                         ;                            ;
-; 10:1               ; 5 bits    ; 30 LEs        ; 10 LEs               ; 20 LEs                 ; |TowerDefence|sld_hub:auto_hub|irsr_reg[2]                                                                                                                                                                                                                                                                                                                                                  ;                            ;
-; 36:1               ; 4 bits    ; 96 LEs        ; 64 LEs               ; 32 LEs                 ; |TowerDefence|sld_hub:auto_hub|sld_rom_sr:hub_info_reg|WORD_SR[1]                                                                                                                                                                                                                                                                                                                           ;                            ;
 +--------------------+-----------+---------------+----------------------+------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------+
 
 
@@ -8147,15 +8138,14 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------+--------+----------+----------------------------------------------------------------------------------------------------------+
 
 
-+---------------------------------+
-; Elapsed Time Per Partition      ;
-+------------------+--------------+
-; Partition Name   ; Elapsed Time ;
-+------------------+--------------+
-; Top              ; 00:00:31     ;
-; sld_hub:auto_hub ; 00:00:00     ;
-; pzdyqx:nabboc    ; 00:00:00     ;
-+------------------+--------------+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:31     ;
+; pzdyqx:nabboc  ; 00:00:00     ;
++----------------+--------------+
 
 
 +-------------------------------+
@@ -8164,7 +8154,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 32-bit Analysis & Synthesis
     Info: Version 12.0 Build 263 08/02/2012 Service Pack 2 SJ Web Edition
-    Info: Processing started: Sun Jan 20 01:56:37 2013
+    Info: Processing started: Sun Jan 20 02:19:44 2013
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off TowerDefence -c TowerDefence
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 1 design units, including 1 entities, in source file nios_system/synthesis/nios_system.v
@@ -8851,7 +8841,6 @@ Info (12133): Instantiated megafunction "nios_system:niosII|Altera_UP_SD_Card_Av
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_7n92.tdf
     Info (12023): Found entity 1: altsyncram_7n92
 Info (12128): Elaborating entity "altsyncram_7n92" for hierarchy "nios_system:niosII|Altera_UP_SD_Card_Avalon_Interface:sd_card|Altera_UP_SD_Card_Interface:SD_Card_Port|Altera_UP_SD_Card_Buffer:data_line|Altera_UP_SD_Card_Memory_Block:packet_memory|altsyncram:altsyncram_component|altsyncram_7n92:auto_generated"
-Critical Warning (127003): Can't find Memory Initialization File or Hexadecimal (Intel-Format) File C:/Users/Danny/Desktop/EECE381/bearded-octo-sansa/initial_data.mif -- setting all initial values to 0
 Info (12128): Elaborating entity "altera_merlin_master_translator" for hierarchy "nios_system:niosII|altera_merlin_master_translator:nios2_processor_instruction_master_translator"
 Info (12128): Elaborating entity "altera_merlin_master_translator" for hierarchy "nios_system:niosII|altera_merlin_master_translator:nios2_processor_data_master_translator"
 Info (12128): Elaborating entity "altera_merlin_master_translator" for hierarchy "nios_system:niosII|altera_merlin_master_translator:pixel_buffer_dma_0_avalon_pixel_dma_master_translator"
@@ -8992,8 +8981,6 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "DRAM_CKE" is stuck at VCC
     Warning (13410): Pin "VGA_SYNC" is stuck at GND
 Info (17049): 518 registers lost all their fanouts during netlist optimizations.
-Info (13000): Registers with preset signals will power-up high
-Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 1 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
 Info (21057): Implemented 8568 device resources after synthesis - the final resource count might be different
@@ -9004,10 +8991,10 @@ Info (21057): Implemented 8568 device resources after synthesis - the final reso
     Info (21064): Implemented 345 RAM segments
     Info (21065): Implemented 1 PLLs
     Info (21062): Implemented 4 DSP elements
-Info: Quartus II 32-bit Analysis & Synthesis was successful. 0 errors, 79 warnings
-    Info: Peak virtual memory: 461 megabytes
-    Info: Processing ended: Sun Jan 20 01:57:24 2013
-    Info: Elapsed time: 00:00:47
-    Info: Total CPU time (on all processors): 00:00:47
+Info: Quartus II 32-bit Analysis & Synthesis was successful. 0 errors, 78 warnings
+    Info: Peak virtual memory: 471 megabytes
+    Info: Processing ended: Sun Jan 20 02:20:30 2013
+    Info: Elapsed time: 00:00:46
+    Info: Total CPU time (on all processors): 00:00:45
 
 

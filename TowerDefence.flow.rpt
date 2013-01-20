@@ -1,5 +1,5 @@
 Flow report for TowerDefence
-Sun Jan 20 01:58:13 2013
+Sun Jan 20 02:21:19 2013
 Quartus II 32-bit Version 12.0 Build 263 08/02/2012 Service Pack 2 SJ Web Edition
 
 
@@ -38,7 +38,7 @@ applicable agreement for further details.
 +------------------------------------------------------------------------------------+
 ; Flow Summary                                                                       ;
 +------------------------------------+-----------------------------------------------+
-; Flow Status                        ; Successful - Sun Jan 20 01:58:13 2013         ;
+; Flow Status                        ; Successful - Sun Jan 20 02:21:19 2013         ;
 ; Quartus II 32-bit Version          ; 12.0 Build 263 08/02/2012 SP 2 SJ Web Edition ;
 ; Revision Name                      ; TowerDefence                                  ;
 ; Top-level Entity Name              ; TowerDefence                                  ;
@@ -62,7 +62,7 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 01/20/2013 01:56:38 ;
+; Start date & time ; 01/20/2013 02:19:46 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; TowerDefence        ;
 +-------------------+---------------------+
@@ -73,7 +73,7 @@ applicable agreement for further details.
 +-------------------------------------+---------------------------------------------------------------------+---------------+---------------------------------+------------+
 ; Assignment Name                     ; Value                                                               ; Default Value ; Entity Name                     ; Section Id ;
 +-------------------------------------+---------------------------------------------------------------------+---------------+---------------------------------+------------+
-; COMPILER_SIGNATURE_ID               ; 17871151156192.135867579802256                                      ; --            ; --                              ; --         ;
+; COMPILER_SIGNATURE_ID               ; 17871151156192.135867718504908                                      ; --            ; --                              ; --         ;
 ; IP_TOOL_ENV                         ; qsys                                                                ; --            ; altera_avalon_sc_fifo           ; --         ;
 ; IP_TOOL_ENV                         ; qsys                                                                ; --            ; altera_merlin_burst_adapter     ; --         ;
 ; IP_TOOL_ENV                         ; qsys                                                                ; --            ; altera_merlin_master_agent      ; --         ;
@@ -200,11 +200,11 @@ applicable agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:43     ; 1.0                     ; 455 MB              ; 00:00:43                           ;
-; Fitter                    ; 00:00:40     ; 1.0                     ; 523 MB              ; 00:00:40                           ;
-; Assembler                 ; 00:00:04     ; 1.0                     ; 344 MB              ; 00:00:04                           ;
-; TimeQuest Timing Analyzer ; 00:00:04     ; 1.0                     ; 365 MB              ; 00:00:04                           ;
-; Total                     ; 00:01:31     ; --                      ; --                  ; 00:01:31                           ;
+; Analysis & Synthesis      ; 00:00:42     ; 1.0                     ; 468 MB              ; 00:00:42                           ;
+; Fitter                    ; 00:00:41     ; 1.0                     ; 542 MB              ; 00:00:41                           ;
+; Assembler                 ; 00:00:03     ; 1.0                     ; 344 MB              ; 00:00:04                           ;
+; TimeQuest Timing Analyzer ; 00:00:03     ; 1.0                     ; 365 MB              ; 00:00:04                           ;
+; Total                     ; 00:01:29     ; --                      ; --                  ; 00:01:31                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
