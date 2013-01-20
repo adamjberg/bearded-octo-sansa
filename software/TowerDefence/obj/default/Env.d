@@ -7,7 +7,10 @@ obj/default/Env.o: Env.c Env.h Object.h animation.h \
   ../TowerDefence_bsp//HAL/inc/priv/alt_dev_llist.h \
   ../TowerDefence_bsp//HAL/inc/sys/alt_llist.h \
   ../TowerDefence_bsp//drivers/inc/altera_up_avalon_video_character_buffer_with_dma.h \
-  hardCode.h
+  hardCode.h Game.h ../TowerDefence_bsp//HAL/inc/sys/alt_alarm.h \
+  ../TowerDefence_bsp//HAL/inc/sys/alt_llist.h \
+  ../TowerDefence_bsp//HAL/inc/priv/alt_alarm.h \
+  ../TowerDefence_bsp//drivers/inc/altera_up_sd_card_avalon_interface.h
 
 Env.h:
 
@@ -34,3 +37,13 @@ animation.h:
 ../TowerDefence_bsp//drivers/inc/altera_up_avalon_video_character_buffer_with_dma.h:
 
 hardCode.h:
+
+Game.h:
+
+../TowerDefence_bsp//HAL/inc/sys/alt_alarm.h:
+
+../TowerDefence_bsp//HAL/inc/sys/alt_llist.h:
+
+../TowerDefence_bsp//HAL/inc/priv/alt_alarm.h:
+
+../TowerDefence_bsp//drivers/inc/altera_up_sd_card_avalon_interface.h:

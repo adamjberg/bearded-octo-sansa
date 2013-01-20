@@ -9,6 +9,7 @@
 #define OBJECT_H_
 #include "animation.h"
 #include <stdlib.h>
+#include "Game.h"
 
 struct Object {
 	int x, y, scale, prev_x, prev_y, center_x, center_y, total_stats;

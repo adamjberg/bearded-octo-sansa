@@ -3,18 +3,7 @@
  * The main models of tower defence game developed by group 5 in EECE 381 class.
  * test
  */
-
-#include <stdio.h>
-#include <stdlib.h>
-#include <math.h>
-#include "sys/alt_alarm.h"
-#include "animation.h"
-#include "Object.h"
-#include <altera_up_sd_card_avalon_interface.h>
-#include "hardCode.h"
-#include "Env.h"
-
-alt_up_pixel_buffer_dma_dev* pixel_buffer;
+#include "Game.h"
 
 /*helper function to calculate the distance between two points */
 float distance(int x1, int y1, int x2, int y2) {
@@ -42,6 +31,7 @@ alt_u32 my_alarm_callback (void* paras)
 void initVGA() {
 	// Use the name of your pixel buffer DMA core
 	  pixel_buffer =alt_up_pixel_buffer_dma_open_dev("/dev/pixel_buffer_dma_0");
+
 	  // Set the background buffer address – Although we don’t use thebackground,
 	  // they only provide a function to change the background buffer address, so
 	  // we must set that, and then swap it to the foreground.
@@ -229,28 +219,29 @@ void checkCollision(struct Env* e) {
 	}
 }
 
+void displayString(char* string, int x, int y) {
+	alt_up_char_buffer_init(char_buffer);
+	alt_up_char_buffer_string(char_buffer, string, x, y);
+}
 /*
  * Main Game Loop
  */
 int main()
 {
-
-	alt_up_char_buffer_dev *char_buffer;
-	char_buffer = alt_up_char_buffer_open_dev("/dev/char_drawer");
-	alt_up_char_buffer_init(char_buffer);
+	char_buffer  = alt_up_char_buffer_open_dev("/dev/char_drawer");
 
 	alt_up_sd_card_dev *device_reference = NULL;
 	//int* pic;
 	int frame = 25;
 	while(!loadSDCard(device_reference)) {
-		alt_up_char_buffer_clear(char_buffer);
-		alt_up_char_buffer_string(char_buffer, "Please insert the SD card.", frame, 30);
+		displayString("Please insert the SD card.", frame, 30);
 		frame++;
 		if(frame > 60) frame = -5;
 		usleep(500000);
+		alt_up_char_buffer_clear(char_buffer);
 	}
-	//loadSDImage("EARTH.BMP", &pic);
 
+	//loadSDImage("EARTH.BMP", &pic);
 	initVGA();
 
 	alt_alarm alarm;
@@ -298,13 +289,11 @@ int main()
   addToEnv(p, face);
   addToEnv(p, ani);
 
-
   alt_up_pixel_buffer_dma_draw_box(pixel_buffer, 250, 0, 320, 240, 0x7BEF, 0);
   alt_up_pixel_buffer_dma_draw_box(pixel_buffer, 253, 3, 317, 237, 0xBDF7, 0);
-  alt_up_char_buffer_clear(char_buffer);
 
   alt_alarm_start (&alarm,alt_ticks_per_second(),my_alarm_callback,(void*)p);
-
+  int k = 0;
   while(1) {
 	  //background stars
 	  setXY(star, rand()%240, rand()%240);
@@ -314,9 +303,10 @@ int main()
 	  //Game Processing
 	  setXY(face, face->x+1, face->y);
 	  if(face->x > 240) face->x = 10;
-
+	  if(k == 200) removeFromEnv(p, tower);
 	  //nothing running right now..thus slowing down the game speed a bit
 	  usleep(100000);
+	  k++;
   }
   return 0;
 }

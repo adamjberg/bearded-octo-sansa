@@ -1,4 +1,5 @@
-obj/default/Game.o: Game.c ../TowerDefence_bsp//HAL/inc/sys/alt_alarm.h \
+obj/default/Game.o: Game.c Game.h \
+  ../TowerDefence_bsp//HAL/inc/sys/alt_alarm.h \
   ../TowerDefence_bsp//HAL/inc/sys/alt_llist.h \
   ../TowerDefence_bsp//HAL/inc/alt_types.h \
   ../TowerDefence_bsp//HAL/inc/priv/alt_alarm.h \
@@ -13,6 +14,8 @@ obj/default/Game.o: Game.c ../TowerDefence_bsp//HAL/inc/sys/alt_alarm.h \
   ../TowerDefence_bsp//drivers/inc/altera_up_avalon_video_character_buffer_with_dma.h \
   hardCode.h Env.h Object.h \
   ../TowerDefence_bsp//drivers/inc/altera_up_sd_card_avalon_interface.h
+
+Game.h:
 
 ../TowerDefence_bsp//HAL/inc/sys/alt_alarm.h:
 

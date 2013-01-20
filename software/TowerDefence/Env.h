@@ -18,4 +18,5 @@ struct Env {
 
 struct Env* initEnv();
 void addToEnv(struct Env*, struct Object*);
+int removeFromEnv(struct Env*, struct Object*);
 #endif /* ENV_H_ */

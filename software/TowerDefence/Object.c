@@ -6,7 +6,6 @@
  */
 
 #include "Object.h"
-
 struct Object* initObject(int pos_x, int pos_y, int size, struct animation* s1) {
 	struct Object* this = (struct Object*)malloc(sizeof(struct Object));
 	this->x = pos_x;
@@ -29,7 +28,9 @@ void killObject(struct Object* this) {
 	this->animate = NULL;
 	for(i = 0; i < this->total_stats; i++) {
 		killAnimation(this->stats[i], this->scale);
-	} free(this);
+	}
+	cleanDrawing(pixel_buffer, this->x, this->y, this->scale);
+	free(this);
 }
 
 void setStats(struct Object* this, int stat) {
