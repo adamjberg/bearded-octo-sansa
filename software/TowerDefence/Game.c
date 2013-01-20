@@ -218,9 +218,11 @@ void checkCollision(struct Env* e) {
 		}
 	}
 }
-
+/*
+ * Helper method that will print the string on the display
+ */
 void displayString(char* string, int x, int y) {
-	alt_up_char_buffer_init(char_buffer);
+	alt_up_char_buffer_clear(char_buffer);
 	alt_up_char_buffer_string(char_buffer, string, x, y);
 }
 /*
@@ -229,17 +231,18 @@ void displayString(char* string, int x, int y) {
 int main()
 {
 	char_buffer  = alt_up_char_buffer_open_dev("/dev/char_drawer");
+	alt_up_char_buffer_init(char_buffer);
 
 	alt_up_sd_card_dev *device_reference = NULL;
 	//int* pic;
 	int frame = 25;
+
 	while(!loadSDCard(device_reference)) {
 		displayString("Please insert the SD card.", frame, 30);
 		frame++;
 		if(frame > 60) frame = -5;
 		usleep(500000);
-		alt_up_char_buffer_clear(char_buffer);
-	}
+	}alt_up_char_buffer_clear(char_buffer);
 
 	//loadSDImage("EARTH.BMP", &pic);
 	initVGA();
