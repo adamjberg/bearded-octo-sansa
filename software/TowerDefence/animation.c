@@ -81,18 +81,18 @@ void animated(alt_up_pixel_buffer_dma_dev* pixel_buffer, struct animation** curr
  * animation for background, non-interacting images
  */
 void backgroundAnimation(alt_up_pixel_buffer_dma_dev* pixel_buffer, int* coord) {
-	alt_up_pixel_buffer_dma_draw_line(pixel_buffer, coord[0], coord[1], 225, 215, 0x0000,0);
-	alt_up_pixel_buffer_dma_draw_line(pixel_buffer, coord[1], coord[0], 225, 215, 0x0000, 0);
-	alt_up_pixel_buffer_dma_draw_line(pixel_buffer, coord[0]+20, coord[0]+10, 225, 215, 0x0000,0);
-	alt_up_pixel_buffer_dma_draw_line(pixel_buffer, coord[1]+10, coord[1]+10, 225, 215, 0x0000,0);
+	alt_up_pixel_buffer_dma_draw_line(pixel_buffer, coord[0], coord[1], 220, 210, 0x0000,0);
+	alt_up_pixel_buffer_dma_draw_line(pixel_buffer, coord[1], coord[0], 220, 210, 0x0000, 0);
+	alt_up_pixel_buffer_dma_draw_line(pixel_buffer, coord[0]+20, coord[0]+10, 220, 210, 0x0000,0);
+	alt_up_pixel_buffer_dma_draw_line(pixel_buffer, coord[1]+10, coord[1]+10, 220, 210, 0x0000,0);
 	coord[0]++;
 	coord[1]--;
 	if(coord[0] > 200) coord[0] = 150;
 	if(coord[1] < 150) coord[1] = 200;
-	alt_up_pixel_buffer_dma_draw_line(pixel_buffer, coord[0], coord[1], 225, 215, 0x3333,0);
-	alt_up_pixel_buffer_dma_draw_line(pixel_buffer, coord[1], coord[0], 225, 215, 0xFFFF, 0);
-	alt_up_pixel_buffer_dma_draw_line(pixel_buffer, coord[0]+20, coord[0]+10, 225, 215, 0x1111,0);
-	alt_up_pixel_buffer_dma_draw_line(pixel_buffer, coord[1]+10, coord[1]+10, 225, 215, 0xAAAA,0);
+	alt_up_pixel_buffer_dma_draw_line(pixel_buffer, coord[0], coord[1], 220, 210, 0x3333,0);
+	alt_up_pixel_buffer_dma_draw_line(pixel_buffer, coord[1], coord[0], 220, 210, 0xFFFF, 0);
+	alt_up_pixel_buffer_dma_draw_line(pixel_buffer, coord[0]+20, coord[0]+10, 220, 210, 0x1111,0);
+	alt_up_pixel_buffer_dma_draw_line(pixel_buffer, coord[1]+10, coord[1]+10, 220, 210, 0xAAAA,0);
 
 }
 

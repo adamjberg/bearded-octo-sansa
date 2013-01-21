@@ -18,6 +18,7 @@ struct Object* initObject(int pos_x, int pos_y, int size, struct animation* s1) 
 	this->currImg = s1;
 	this->stats[0] = s1;
 	this->total_stats = 1;
+	this->isSelected = 0;
 	this->animate = animated;
 	return this;
 }

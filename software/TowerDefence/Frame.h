@@ -11,6 +11,7 @@
 #include "GameInfo.h"
 struct Frame {
 	int ltx, lty, rbx, rby;
+	int statesLine;
 	struct Object* super;
 };
 

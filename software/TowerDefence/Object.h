@@ -17,6 +17,7 @@ struct Object {
 	struct animation *currImg;
 	struct animation* stats[3];
 	enum Type class;
+	int isSelected;
 	void (*animate)(alt_up_pixel_buffer_dma_dev*, struct animation**, int, int, int, int);
 	void (*collide)(struct Object*, struct Object*);
 };

@@ -15,6 +15,7 @@ struct Frame* initFrame(int x1, int y1, int x2, int y2, int type) {
 	f->lty = y1;
 	f->rbx = x2;
 	f->rby = y2;
+	f->statesLine = 0;
 	drawFrame(f, type);
 	return f;
 }
@@ -45,14 +46,15 @@ void updateScoreFrame(struct Frame* f, struct GameInfo* g) {
 	alt_up_char_buffer_string(char_buffer, string, 65, 3);
 }
 
-/*Update the status board with message*/
+/*Update the status board with message; will warp words to next line*/
 void updateStatusFrame(struct Frame* f, char* msg) {
-	int i = 0, j = 0, isPrint = 1, len1 = 0, len2 = 0;
+	int i = 0, isPrint = 1, len1 = 0, len2 = 0;
 
 	if(msg != NULL) {
 		if(strcmp(msg, " ") == 0) {
-			for(i = 0; i < 10; i++) {
-				alt_up_char_buffer_string(char_buffer, "                 ", 64, 46+i);
+			while(f->statesLine > 0) {
+				alt_up_char_buffer_string(char_buffer, "                 ", 64, 46+f->statesLine);
+				f->statesLine--;
 			}
 		} else {
 			char* string[30];
@@ -68,11 +70,11 @@ void updateStatusFrame(struct Frame* f, char* msg) {
 						strncat(string1, string2, len2);
 						isPrint = 1;
 					}
-					alt_up_char_buffer_string(char_buffer, string1, 64, 46+j);
-					j++;
+					alt_up_char_buffer_string(char_buffer, string1, 64, 46+f->statesLine);
+					f->statesLine++;
 				} else isPrint = 0;
 				i++;
-			}alt_up_char_buffer_string(char_buffer, string[i-1], 64, 46+j);
+			}alt_up_char_buffer_string(char_buffer, string[i-1], 64, 46+f->statesLine);
 		}
 		//free(msg);
 	}
