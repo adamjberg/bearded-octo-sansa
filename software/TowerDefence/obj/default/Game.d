@@ -13,7 +13,8 @@ obj/default/Game.o: Game.c Game.h \
   ../TowerDefence_bsp//HAL/inc/sys/alt_llist.h \
   ../TowerDefence_bsp//drivers/inc/altera_up_avalon_video_character_buffer_with_dma.h \
   hardCode.h Env.h Object.h \
-  ../TowerDefence_bsp//drivers/inc/altera_up_sd_card_avalon_interface.h
+  ../TowerDefence_bsp//drivers/inc/altera_up_sd_card_avalon_interface.h \
+  Frame.h GameInfo.h
 
 Game.h:
 
@@ -54,3 +55,7 @@ Env.h:
 Object.h:
 
 ../TowerDefence_bsp//drivers/inc/altera_up_sd_card_avalon_interface.h:
+
+Frame.h:
+
+GameInfo.h:

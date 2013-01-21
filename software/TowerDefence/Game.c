@@ -91,13 +91,13 @@ bool loadSDImage(char* filename, int** destination) {
 	}
 
 	//Start reading the pixel data
-/*	for(i = size-1; i >= 0; i--) {
+	for(i = size-1; i >= 0; i--) {
 		for(j = 0; j < size; j+=2) {
 			byte = alt_up_sd_card_read(file_pointer);
 			*(destination + i*size+j) = byte;
 			*(destination + (i)*size+(j+1)) = byte;
 		}
-	}*/
+	}
 	/*for(i = size*size-1; i >=0; i-=2) {
 		byte = alt_up_sd_card_read(file_pointer);
 		*(*destination + i) = byte / 16;
@@ -238,12 +238,13 @@ int main()
 	int frame = 25;
 
 	while(!loadSDCard(device_reference)) {
-		displayString("Please insert the SD card.", frame, 30);
+		displayString("Please insert the SD card to start", frame, 30);
 		frame++;
 		if(frame > 60) frame = -5;
 		usleep(500000);
 	}alt_up_char_buffer_clear(char_buffer);
 
+	struct GameInfo* info = initGameInfo();
 	//loadSDImage("EARTH.BMP", &pic);
 	initVGA();
 
@@ -294,6 +295,13 @@ int main()
 
   alt_up_pixel_buffer_dma_draw_box(pixel_buffer, 250, 0, 320, 240, 0x7BEF, 0);
   alt_up_pixel_buffer_dma_draw_box(pixel_buffer, 253, 3, 317, 237, 0xBDF7, 0);
+  struct Frame* scoreBoard = initFrame(255, 5, 315, 20, 1);
+  addToEnv(p, scoreBoard->super);
+  updateScoreFrame(scoreBoard, info);
+
+  struct Frame* statusBoard = initFrame(255, 180, 315, 235, 3);
+  addToEnv(p, statusBoard->super);
+  updateStatusFrame(statusBoard, "Warning!! Pacman is approaching!!!");
 
   alt_alarm_start (&alarm,alt_ticks_per_second(),my_alarm_callback,(void*)p);
   int k = 0;
@@ -307,6 +315,8 @@ int main()
 	  setXY(face, face->x+1, face->y);
 	  if(face->x > 240) face->x = 10;
 	  if(k == 200) removeFromEnv(p, tower);
+	  info->score++;
+	  updateScoreFrame(scoreBoard, info);
 	  //nothing running right now..thus slowing down the game speed a bit
 	  usleep(100000);
 	  k++;

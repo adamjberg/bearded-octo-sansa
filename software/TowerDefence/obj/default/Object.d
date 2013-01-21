@@ -10,7 +10,8 @@ obj/default/Object.o: Object.c Object.h animation.h \
   hardCode.h Env.h Game.h ../TowerDefence_bsp//HAL/inc/sys/alt_alarm.h \
   ../TowerDefence_bsp//HAL/inc/sys/alt_llist.h \
   ../TowerDefence_bsp//HAL/inc/priv/alt_alarm.h \
-  ../TowerDefence_bsp//drivers/inc/altera_up_sd_card_avalon_interface.h
+  ../TowerDefence_bsp//drivers/inc/altera_up_sd_card_avalon_interface.h \
+  Frame.h GameInfo.h
 
 Object.h:
 
@@ -47,3 +48,7 @@ Game.h:
 ../TowerDefence_bsp//HAL/inc/priv/alt_alarm.h:
 
 ../TowerDefence_bsp//drivers/inc/altera_up_sd_card_avalon_interface.h:
+
+Frame.h:
+
+GameInfo.h:

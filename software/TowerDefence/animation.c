@@ -64,14 +64,16 @@ void cleanDrawing(alt_up_pixel_buffer_dma_dev* pixel_buffer, int pos_x, int pos_
  * Draw the next image in next round if isForward == 1, otherwise draw the previous image in next round.
  */
 void animated(alt_up_pixel_buffer_dma_dev* pixel_buffer, struct animation** curr, int x, int y, int size, int isForward) {
-	cleanDrawing(pixel_buffer, (*curr)->prev_x, (*curr)->prev_y, size);
-	(*curr)->prev_x = x;
-	(*curr)->prev_y = y;
-	draw(pixel_buffer, x,y,(*curr)->image,size);
-	if(isForward > 0) {
-		*curr = (*curr)->next;
-	} else {
-		*curr = (*curr)->prev;
+	if(*curr != NULL) {
+		cleanDrawing(pixel_buffer, (*curr)->prev_x, (*curr)->prev_y, size);
+		(*curr)->prev_x = x;
+		(*curr)->prev_y = y;
+		draw(pixel_buffer, x,y,(*curr)->image,size);
+		if(isForward > 0) {
+			*curr = (*curr)->next;
+		} else {
+			*curr = (*curr)->prev;
+		}
 	}
 }
 
@@ -85,11 +87,17 @@ void backgroundAnimation(alt_up_pixel_buffer_dma_dev* pixel_buffer, int* coord) 
 	alt_up_pixel_buffer_dma_draw_line(pixel_buffer, coord[1]+10, coord[1]+10, 225, 215, 0x0000,0);
 	coord[0]++;
 	coord[1]--;
-	if(coord[0] > 100) coord[0] = 0;
-	if(coord[1] < 0) coord[1] = 100;
+	if(coord[0] > 200) coord[0] = 150;
+	if(coord[1] < 150) coord[1] = 200;
 	alt_up_pixel_buffer_dma_draw_line(pixel_buffer, coord[0], coord[1], 225, 215, 0x3333,0);
 	alt_up_pixel_buffer_dma_draw_line(pixel_buffer, coord[1], coord[0], 225, 215, 0xFFFF, 0);
 	alt_up_pixel_buffer_dma_draw_line(pixel_buffer, coord[0]+20, coord[0]+10, 225, 215, 0x1111,0);
 	alt_up_pixel_buffer_dma_draw_line(pixel_buffer, coord[1]+10, coord[1]+10, 225, 215, 0xAAAA,0);
 
+}
+
+/*helper function to convert 32 bit color code to 16 bit color*/
+
+int getColor(int red, int green, int blue) {
+	return (int)((red*0.25)*2048 + (green*0.5)*64 + blue*0.25);
 }

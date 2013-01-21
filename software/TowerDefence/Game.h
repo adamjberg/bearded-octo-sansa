@@ -11,13 +11,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+#include <string.h>
 #include "sys/alt_alarm.h"
 #include "animation.h"
 #include "Object.h"
 #include <altera_up_sd_card_avalon_interface.h>
 #include "hardCode.h"
 #include "Env.h"
-
+#include "Frame.h"
 
 alt_up_pixel_buffer_dma_dev* pixel_buffer;
 alt_up_char_buffer_dev* char_buffer;

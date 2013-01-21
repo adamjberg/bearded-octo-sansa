@@ -11,10 +11,12 @@
 #include <stdlib.h>
 #include "Game.h"
 
+enum Type{tower = 0, bullet = 1, alien = 2, panel = 3};
 struct Object {
 	int x, y, scale, prev_x, prev_y, center_x, center_y, total_stats;
 	struct animation *currImg;
 	struct animation* stats[3];
+	enum Type class;
 	void (*animate)(alt_up_pixel_buffer_dma_dev*, struct animation**, int, int, int, int);
 	void (*collide)(struct Object*, struct Object*);
 };

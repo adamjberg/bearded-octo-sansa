@@ -13,7 +13,7 @@ struct Env* initEnv() {
 	struct Env* env = (struct Env*)malloc(sizeof(struct Env));
 	env->o = (struct Object**)malloc(30*sizeof(struct Object*));
 	env->size = 0;
-	env->coord[0] = env->coord[1] = 0;
+	env->coord[0] = env->coord[1] = 150;
 	return env;
 }
 

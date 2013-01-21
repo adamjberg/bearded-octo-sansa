@@ -147,6 +147,8 @@ C_SRCS += Object.c
 C_SRCS += animation.c
 C_SRCS += hardCode.c
 C_SRCS += Game.c
+C_SRCS += Frame.c
+C_SRCS += GameInfo.c
 CXX_SRCS :=
 ASM_SRCS :=
 

@@ -23,6 +23,7 @@ struct animation {
 };
 
 void backgroundAnimation(alt_up_pixel_buffer_dma_dev*, int*);
+int getColor(int, int, int);
 
 struct animation* initAnimation(int*, int);
 void addImage(struct animation*, struct animation*);
@@ -30,4 +31,5 @@ void draw(alt_up_pixel_buffer_dma_dev*, int, int, int*, int);
 void cleanDrawing(alt_up_pixel_buffer_dma_dev*, int, int, int);
 void animated(alt_up_pixel_buffer_dma_dev*, struct animation**, int, int, int, int);
 void killAnimation(struct animation*, int);
+
 #endif /* ANIMATION_H_ */
