@@ -87,8 +87,7 @@ module nios_system_pixel_buffer_dma_0 (
 parameter DEFAULT_BUFFER_ADDRESS		= 32'd0;
 parameter DEFAULT_BACK_BUF_ADDRESS	= 32'd0;
 
-parameter WW						= 8;  // Image width's address width
-parameter HW						= 7;  // Image height's address width
+parameter AW						= 16; // Image size's address width
 
 parameter MW						= 15; // Avalon master's data width
 parameter DW						= 15; // Image pixel width
@@ -168,8 +167,7 @@ reg						buffer_swap;
 reg			[ 3: 0]	pending_reads;
 reg						reading_first_pixel_in_image;
 
-reg			[WW: 0]	pixel_address;
-reg			[HW: 0]	line_address;
+reg			[AW: 0]	pixel_address;
 
 // State Machine Registers
 reg			[ 1: 0]	s_pixel_buffer;
@@ -208,8 +206,7 @@ begin
 		begin
 			if (~master_waitrequest)
 			begin
-				if ((pixel_address == (PIXELS - 1)) & 
-					(line_address == (LINES - 1)))
+				if (pixel_address == ((PIXELS * LINES)  - 1))
 					ns_pixel_buffer = STATE_1_WAIT_FOR_LAST_PIXEL;
 				else if (fifo_almost_full) 
 					ns_pixel_buffer = STATE_0_IDLE;
@@ -259,12 +256,11 @@ begin
    
 	else if (slave_read)
 	begin
-		slave_readdata[31:24] <= HW + 8'h01;
-		slave_readdata[23:16] <= WW + 8'h01;
+		slave_readdata[31:16] <= AW + 16'h0001;
 		slave_readdata[15: 8] <= 8'h00;
 		slave_readdata[ 7: 4] <= 4'h2;
 		slave_readdata[ 3: 2] <= 2'h0;
-		slave_readdata[    1] <= 1'b0;
+		slave_readdata[    1] <= 1'b1;
 		slave_readdata[    0] <= buffer_swap;
 	end
 end
@@ -289,8 +285,7 @@ begin
 			back_buf_start_address[31:24] <= slave_writedata[31:24];
 	end
 	else if (buffer_swap & master_read & ~master_waitrequest &
-			((pixel_address == (PIXELS - 1)) & 
-			(line_address == (LINES - 1))))
+			(pixel_address == ((PIXELS * LINES)  - 1)))
 	begin
 		buffer_start_address <= back_buf_start_address;
 		back_buf_start_address <= buffer_start_address;
@@ -303,7 +298,7 @@ begin
 		buffer_swap <= 1'b0;
 	else if (slave_write & (slave_address == 2'h0))
 		buffer_swap <= 1'b1;
-	else if ((pixel_address == 0) & (line_address == 0))
+	else if (pixel_address == 0)
 		buffer_swap <= 1'b0;
 end
 
@@ -325,7 +320,7 @@ begin
 	if (reset)
 		reading_first_pixel_in_image <= 1'b0;
 	else if ((s_pixel_buffer == STATE_0_IDLE) &
-			((pixel_address == 0) & (line_address == 0)))
+			(pixel_address == 0))
 		reading_first_pixel_in_image <= 1'b1;
 	else if (master_readdatavalid)
 		reading_first_pixel_in_image <= 1'b0;
@@ -337,24 +332,10 @@ begin
 		pixel_address <= 'h0;
 	else if (master_read & ~master_waitrequest)
 	begin
-		if (pixel_address == (PIXELS - 1))
+		if (pixel_address == ((PIXELS * LINES)  - 1))
 			pixel_address <= 'h0;
 		else
 			pixel_address <= pixel_address + 1;
-	end
-end
-
-always @(posedge clk)
-begin
-	if (reset)
-		line_address <= 'h0;
-	else if ((master_read & ~master_waitrequest) && 
-			(pixel_address == (PIXELS - 1)))
-	begin
-		if (line_address == (LINES - 1))
-			line_address <= 'h0;
-		else
-			line_address <= line_address + 1;
 	end
 end
 
@@ -364,7 +345,7 @@ end
 
 // Output Assignments
 assign master_address		= buffer_start_address + 
-								{line_address, pixel_address, 1'b0};
+								{pixel_address, 1'b0};
 assign master_arbiterlock	= !((s_pixel_buffer == STATE_2_READ_BUFFER) |
 		(s_pixel_buffer == STATE_3_MAX_PENDING_READS_STALL));
 assign master_read			= (s_pixel_buffer == STATE_2_READ_BUFFER);

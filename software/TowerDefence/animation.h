@@ -16,6 +16,7 @@
 struct animation {
 	int* image;
 	int prev_x, prev_y;
+	int clean;
 	struct animation *prev;
 	struct animation *next;
 	struct animation* first;
@@ -24,8 +25,10 @@ struct animation {
 
 void backgroundAnimation(alt_up_pixel_buffer_dma_dev*, int*);
 int getColor(int, int, int);
+int getColor555(int);
 
 struct animation* initAnimation(int*, int);
+void imageInDisk(struct animation*);
 void addImage(struct animation*, struct animation*);
 void draw(alt_up_pixel_buffer_dma_dev*, int, int, int*, int);
 void cleanDrawing(alt_up_pixel_buffer_dma_dev*, int, int, int);

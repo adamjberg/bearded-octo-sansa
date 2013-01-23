@@ -20,7 +20,7 @@ struct Frame* initFrame(int x1, int y1, int x2, int y2, int type) {
 	return f;
 }
 /*
- * Draw the frame of board.
+ * Draw the frame of a new board.
  * type = 1 =>score board, type = 2 => control panel, type = 3 => status board
  */
 void drawFrame(struct Frame* f, int type) {
@@ -41,9 +41,11 @@ void drawFrame(struct Frame* f, int type) {
 
 /*Update the score board with current score*/
 void updateScoreFrame(struct Frame* f, struct GameInfo* g) {
-	char string[12];
+	char string[12], currency[14];
 	sprintf(string, "Score %d", g->score);
-	alt_up_char_buffer_string(char_buffer, string, 65, 3);
+	sprintf(currency, "$$ -> %d", g->currency);
+	alt_up_char_buffer_string(char_buffer, string, 65, 2);
+	alt_up_char_buffer_string(char_buffer, currency, 65, 4);
 }
 
 /*Update the status board with message; will warp words to next line*/

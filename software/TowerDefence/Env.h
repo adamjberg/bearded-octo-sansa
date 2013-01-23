@@ -12,7 +12,7 @@
 
 struct Env {
 	struct Object** o;
-	int size;
+	int size, start;
 	int coord[2];
 };
 

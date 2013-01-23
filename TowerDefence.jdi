@@ -1,6 +1,6 @@
 <sld_project_info>
   <file_info>
-    <file checksum="0x0087857D" device="EP2C35F672C6" path="TowerDefence_time_limited.sof" usercode="0xFFFFFFFF"/>
+    <file checksum="0x008701C6" device="EP2C35F672C6" path="TowerDefence_time_limited.sof" usercode="0xFFFFFFFF"/>
   </file_info>
   <hub_info ir_width="2" node_count="3"/>
   <node_info>

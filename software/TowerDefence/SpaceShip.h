@@ -11,6 +11,9 @@
 
 struct SpaceShip {
 	struct Object* super;
+	int damage, level;
 };
 
+struct SpaceShip* initSpaceShip(int, int, int, int);
+void killSpaceShiop(struct SpaceShip*);
 #endif /* SPACESHIP_H_ */

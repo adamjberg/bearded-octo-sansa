@@ -2,8 +2,8 @@
 <sch:Settings xmlns:sch="http://www.altera.com/embeddedsw/bsp/schema">
         <BspType>hal</BspType>
         <BspVersion>default</BspVersion>
-        <BspGeneratedTimeStamp>Jan 20, 2013 5:46:09 PM</BspGeneratedTimeStamp>
-        <BspGeneratedUnixTimeStamp>1358732769276</BspGeneratedUnixTimeStamp>
+        <BspGeneratedTimeStamp>Jan 22, 2013 5:20:48 PM</BspGeneratedTimeStamp>
+        <BspGeneratedUnixTimeStamp>1358904048296</BspGeneratedUnixTimeStamp>
         <BspGeneratedLocation>C:\Users\Danny\Desktop\EECE381\bearded-octo-sansa\software\TowerDefence_bsp</BspGeneratedLocation>
         <BspSettingsFile>settings.bsp</BspSettingsFile>
         <SopcDesignFile>C:\Users\Danny\Desktop\EECE381\bearded-octo-sansa\nios_system.sopcinfo</SopcDesignFile>
