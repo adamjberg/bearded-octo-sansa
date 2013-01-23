@@ -259,7 +259,7 @@ int main()
 
 	struct animation* alien0 = loadSDImageSeq("A100.BMP", 2, 2); //2 images where first 2 characters are prefix
 	struct Object* alien01 = initObject(50, 50, 10, alien0);
-	addToEnv(p, alien01);
+	addToEnv(p, alien01);//afawefefesrf
 
 	alt_up_char_buffer_clear(char_buffer);
 	alt_up_char_buffer_string(char_buffer, "Start", 50, 28);
