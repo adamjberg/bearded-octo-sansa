@@ -6,6 +6,10 @@
  */
 
 #include "Object.h"
+
+/*
+ * Constructor of Object which is a super class of all objects in the game
+ */
 struct Object* initObject(int pos_x, int pos_y, int size, struct animation* s1) {
 	struct Object* this = (struct Object*)malloc(sizeof(struct Object));
 	this->x = pos_x;
@@ -23,6 +27,9 @@ struct Object* initObject(int pos_x, int pos_y, int size, struct animation* s1) 
 	return this;
 }
 
+/*
+ * destructor of object
+ */
 void killObject(struct Object* this) {
 	int i;
 	this->currImg = NULL;
@@ -34,6 +41,10 @@ void killObject(struct Object* this) {
 	free(this);
 }
 
+/*
+ * stats in an object define the animations that it is allow to run
+ * this function will change the animation of an object
+ */
 void setStats(struct Object* this, int stat) {
 	this->currImg = this->stats[stat];
 }
@@ -42,6 +53,9 @@ void addStats(struct Object* this, struct animation* s) {
 	this->total_stats++;
 }
 
+/*
+ * change the coordinate system of an object
+ */
 void setXY(struct Object* o, int pos_x, int pos_y) {
 	o->prev_x = o->x;
 	o->prev_y = o->y;

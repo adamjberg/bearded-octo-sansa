@@ -22,5 +22,5 @@
 
 alt_up_pixel_buffer_dma_dev* pixel_buffer;
 alt_up_char_buffer_dev* char_buffer;
-
+extern int swap;
 #endif /* GAME_H_ */

@@ -1,5 +1,5 @@
 Flow report for TowerDefence
-Mon Jan 21 01:28:18 2013
+Tue Jan 22 15:54:58 2013
 Quartus II 32-bit Version 12.0 Build 263 08/02/2012 Service Pack 2 SJ Web Edition
 
 
@@ -38,15 +38,15 @@ applicable agreement for further details.
 +------------------------------------------------------------------------------------+
 ; Flow Summary                                                                       ;
 +------------------------------------+-----------------------------------------------+
-; Flow Status                        ; Successful - Mon Jan 21 01:28:18 2013         ;
+; Flow Status                        ; Successful - Tue Jan 22 15:54:58 2013         ;
 ; Quartus II 32-bit Version          ; 12.0 Build 263 08/02/2012 SP 2 SJ Web Edition ;
 ; Revision Name                      ; TowerDefence                                  ;
 ; Top-level Entity Name              ; TowerDefence                                  ;
 ; Family                             ; Cyclone II                                    ;
 ; Device                             ; EP2C35F672C6                                  ;
 ; Timing Models                      ; Final                                         ;
-; Total logic elements               ; 6,881 / 33,216 ( 21 % )                       ;
-;     Total combinational functions  ; 6,159 / 33,216 ( 19 % )                       ;
+; Total logic elements               ; 6,840 / 33,216 ( 21 % )                       ;
+;     Total combinational functions  ; 6,107 / 33,216 ( 18 % )                       ;
 ;     Dedicated logic registers      ; 4,427 / 33,216 ( 13 % )                       ;
 ; Total registers                    ; 4495                                          ;
 ; Total pins                         ; 118 / 475 ( 25 % )                            ;
@@ -62,7 +62,7 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 01/21/2013 01:26:46 ;
+; Start date & time ; 01/22/2013 15:53:24 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; TowerDefence        ;
 +-------------------+---------------------+
@@ -73,7 +73,7 @@ applicable agreement for further details.
 +-------------------------------------+---------------------------------------------------------------------+---------------+---------------------------------+------------+
 ; Assignment Name                     ; Value                                                               ; Default Value ; Entity Name                     ; Section Id ;
 +-------------------------------------+---------------------------------------------------------------------+---------------+---------------------------------+------------+
-; COMPILER_SIGNATURE_ID               ; 17871151156192.135876040504640                                      ; --            ; --                              ; --         ;
+; COMPILER_SIGNATURE_ID               ; 17871151156192.135889880201436                                      ; --            ; --                              ; --         ;
 ; IP_TOOL_ENV                         ; qsys                                                                ; --            ; altera_avalon_sc_fifo           ; --         ;
 ; IP_TOOL_ENV                         ; qsys                                                                ; --            ; altera_merlin_burst_adapter     ; --         ;
 ; IP_TOOL_ENV                         ; qsys                                                                ; --            ; altera_merlin_master_agent      ; --         ;
@@ -190,7 +190,7 @@ applicable agreement for further details.
 ; PARTITION_COLOR                     ; 16764057                                                            ; --            ; --                              ; Top        ;
 ; PARTITION_FITTER_PRESERVATION_LEVEL ; PLACEMENT_AND_ROUTING                                               ; --            ; --                              ; Top        ;
 ; PARTITION_NETLIST_TYPE              ; SOURCE                                                              ; --            ; --                              ; Top        ;
-; SLD_INFO                            ; QSYS_NAME nios_system HAS_SOPCINFO 1 GENERATION_ID 1358675714       ; --            ; nios_system                     ; --         ;
+; SLD_INFO                            ; QSYS_NAME nios_system HAS_SOPCINFO 1 GENERATION_ID 1358883679       ; --            ; nios_system                     ; --         ;
 ; SYNTHESIS_ONLY_QIP                  ; On                                                                  ; --            ; --                              ; --         ;
 +-------------------------------------+---------------------------------------------------------------------+---------------+---------------------------------+------------+
 
@@ -200,11 +200,11 @@ applicable agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:41     ; 1.0                     ; 468 MB              ; 00:00:41                           ;
-; Fitter                    ; 00:00:40     ; 1.0                     ; 536 MB              ; 00:00:40                           ;
+; Analysis & Synthesis      ; 00:00:41     ; 1.0                     ; 467 MB              ; 00:00:41                           ;
+; Fitter                    ; 00:00:42     ; 1.0                     ; 540 MB              ; 00:00:42                           ;
 ; Assembler                 ; 00:00:04     ; 1.0                     ; 344 MB              ; 00:00:04                           ;
-; TimeQuest Timing Analyzer ; 00:00:04     ; 1.0                     ; 365 MB              ; 00:00:04                           ;
-; Total                     ; 00:01:29     ; --                      ; --                  ; 00:01:29                           ;
+; TimeQuest Timing Analyzer ; 00:00:04     ; 1.0                     ; 374 MB              ; 00:00:04                           ;
+; Total                     ; 00:01:31     ; --                      ; --                  ; 00:01:31                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

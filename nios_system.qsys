@@ -164,19 +164,16 @@
          type = "int";
       }
    }
-   element leds.s1
+   element timer.s1
    {
-      datum baseAddress
+      datum _tags
       {
-         value = "17314896";
-         type = "long";
+         value = "";
+         type = "String";
       }
-   }
-   element timestamp.s1
-   {
       datum baseAddress
       {
-         value = "17314848";
+         value = "17314816";
          type = "long";
       }
    }
@@ -188,16 +185,19 @@
          type = "long";
       }
    }
-   element timer.s1
+   element timestamp.s1
    {
-      datum _tags
-      {
-         value = "";
-         type = "String";
-      }
       datum baseAddress
       {
-         value = "17314816";
+         value = "17314848";
+         type = "long";
+      }
+   }
+   element leds.s1
+   {
+      datum baseAddress
+      {
+         value = "17314896";
          type = "long";
       }
    }
@@ -269,7 +269,7 @@
  <parameter name="projectName" value="TowerDefence.qpf" />
  <parameter name="sopcBorderPoints" value="false" />
  <parameter name="systemHash" value="1" />
- <parameter name="timeStamp" value="1358675693833" />
+ <parameter name="timeStamp" value="1358883659886" />
  <parameter name="useTestBenchNamingPattern" value="false" />
  <instanceScript></instanceScript>
  <interface name="clk" internal="clk_0.clk_in" type="clock" dir="end" />
@@ -509,7 +509,7 @@
    version="12.0"
    enabled="1"
    name="pixel_buffer_dma_0">
-  <parameter name="addr_mode" value="X-Y" />
+  <parameter name="addr_mode" value="Consecutive" />
   <parameter name="start_address" value="0" />
   <parameter name="back_start_address" value="0" />
   <parameter name="image_width" value="320" />

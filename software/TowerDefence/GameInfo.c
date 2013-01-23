@@ -6,7 +6,9 @@
  */
 
 #include "GameInfo.h"
-
+/*
+ * Constructor
+ */
 struct GameInfo* initGameInfo() {
 	struct GameInfo* g = (struct GameInfo*)malloc(sizeof(struct GameInfo));
 	g->score = g->gameLvl = 0;
