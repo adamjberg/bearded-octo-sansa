@@ -18,7 +18,7 @@
 #
 # Quartus II 32-bit
 # Version 12.0 Build 263 08/02/2012 Service Pack 2 SJ Web Edition
-# Date created = 23:05:05  February 14, 2013
+# Date created = 18:42:52  February 16, 2013
 #
 # -------------------------------------------------------------------------- #
 #
@@ -40,7 +40,7 @@ set_global_assignment -name FAMILY "Cyclone II"
 set_global_assignment -name DEVICE EP2C35F672C6
 set_global_assignment -name TOP_LEVEL_ENTITY TowerDefence
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION "12.0 SP2"
-set_global_assignment -name PROJECT_CREATION_TIME_DATE "23:05:05  FEBRUARY 14, 2013"
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "18:42:52  FEBRUARY 16, 2013"
 set_global_assignment -name LAST_QUARTUS_VERSION "12.0 SP2"
 set_global_assignment -name QIP_FILE nios_system/synthesis/nios_system.qip
 set_global_assignment -name VHDL_FILE TowerDefence.vhd

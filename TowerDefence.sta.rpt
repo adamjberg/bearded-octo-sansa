@@ -1,5 +1,5 @@
 TimeQuest Timing Analyzer report for TowerDefence
-Sat Feb 16 15:06:13 2013
+Sat Feb 16 19:00:39 2013
 Quartus II 32-bit Version 12.0 Build 263 08/02/2012 Service Pack 2 SJ Web Edition
 
 
@@ -87,8 +87,8 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +------------------------------------------------------------------+--------+--------------------------+
 ; SDC File Path                                                    ; Status ; Read at                  ;
 +------------------------------------------------------------------+--------+--------------------------+
-; nios_system/synthesis/submodules/altera_reset_controller.sdc     ; OK     ; Sat Feb 16 15:06:11 2013 ;
-; nios_system/synthesis/submodules/nios_system_nios2_processor.sdc ; OK     ; Sat Feb 16 15:06:11 2013 ;
+; nios_system/synthesis/submodules/altera_reset_controller.sdc     ; OK     ; Sat Feb 16 19:00:36 2013 ;
+; nios_system/synthesis/submodules/nios_system_nios2_processor.sdc ; OK     ; Sat Feb 16 19:00:36 2013 ;
 +------------------------------------------------------------------+--------+--------------------------+
 
 
@@ -307,7 +307,7 @@ No dedicated SERDES Receiver circuitry present in device or used in design
 Info: *******************************************************************
 Info: Running Quartus II 32-bit TimeQuest Timing Analyzer
     Info: Version 12.0 Build 263 08/02/2012 Service Pack 2 SJ Web Edition
-    Info: Processing started: Sat Feb 16 15:06:08 2013
+    Info: Processing started: Sat Feb 16 19:00:33 2013
 Info: Command: quartus_sta TowerDefence -c TowerDefence
 Info: qsta_default_script.tcl version: #2
 Warning (20028): Parallel compilation is not licensed and has been disabled
@@ -405,8 +405,8 @@ Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus II 32-bit TimeQuest Timing Analyzer was successful. 0 errors, 15 warnings
     Info: Peak virtual memory: 395 megabytes
-    Info: Processing ended: Sat Feb 16 15:06:13 2013
-    Info: Elapsed time: 00:00:05
-    Info: Total CPU time (on all processors): 00:00:05
+    Info: Processing ended: Sat Feb 16 19:00:39 2013
+    Info: Elapsed time: 00:00:06
+    Info: Total CPU time (on all processors): 00:00:06
 
 

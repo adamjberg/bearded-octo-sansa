@@ -1,5 +1,5 @@
 Flow report for TowerDefence
-Tue Jan 22 15:54:58 2013
+Sat Feb 16 19:00:38 2013
 Quartus II 32-bit Version 12.0 Build 263 08/02/2012 Service Pack 2 SJ Web Edition
 
 
@@ -38,22 +38,22 @@ applicable agreement for further details.
 +------------------------------------------------------------------------------------+
 ; Flow Summary                                                                       ;
 +------------------------------------+-----------------------------------------------+
-; Flow Status                        ; Successful - Tue Jan 22 15:54:58 2013         ;
+; Flow Status                        ; Successful - Sat Feb 16 19:00:37 2013         ;
 ; Quartus II 32-bit Version          ; 12.0 Build 263 08/02/2012 SP 2 SJ Web Edition ;
 ; Revision Name                      ; TowerDefence                                  ;
 ; Top-level Entity Name              ; TowerDefence                                  ;
 ; Family                             ; Cyclone II                                    ;
 ; Device                             ; EP2C35F672C6                                  ;
 ; Timing Models                      ; Final                                         ;
-; Total logic elements               ; 6,840 / 33,216 ( 21 % )                       ;
-;     Total combinational functions  ; 6,107 / 33,216 ( 18 % )                       ;
-;     Dedicated logic registers      ; 4,427 / 33,216 ( 13 % )                       ;
-; Total registers                    ; 4495                                          ;
-; Total pins                         ; 118 / 475 ( 25 % )                            ;
+; Total logic elements               ; 8,717 / 33,216 ( 26 % )                       ;
+;     Total combinational functions  ; 7,864 / 33,216 ( 24 % )                       ;
+;     Dedicated logic registers      ; 5,520 / 33,216 ( 17 % )                       ;
+; Total registers                    ; 5588                                          ;
+; Total pins                         ; 243 / 475 ( 51 % )                            ;
 ; Total virtual pins                 ; 0                                             ;
-; Total memory bits                  ; 157,184 / 483,840 ( 32 % )                    ;
+; Total memory bits                  ; 397,184 / 483,840 ( 82 % )                    ;
 ; Embedded Multiplier 9-bit elements ; 4 / 70 ( 6 % )                                ;
-; Total PLLs                         ; 1 / 4 ( 25 % )                                ;
+; Total PLLs                         ; 2 / 4 ( 50 % )                                ;
 +------------------------------------+-----------------------------------------------+
 
 
@@ -62,7 +62,7 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 01/22/2013 15:53:24 ;
+; Start date & time ; 02/16/2013 18:58:30 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; TowerDefence        ;
 +-------------------+---------------------+
@@ -73,7 +73,7 @@ applicable agreement for further details.
 +-------------------------------------+---------------------------------------------------------------------+---------------+---------------------------------+------------+
 ; Assignment Name                     ; Value                                                               ; Default Value ; Entity Name                     ; Section Id ;
 +-------------------------------------+---------------------------------------------------------------------+---------------+---------------------------------+------------+
-; COMPILER_SIGNATURE_ID               ; 17871151156192.135889880201436                                      ; --            ; --                              ; --         ;
+; COMPILER_SIGNATURE_ID               ; 17871151156192.136106990801456                                      ; --            ; --                              ; --         ;
 ; IP_TOOL_ENV                         ; qsys                                                                ; --            ; altera_avalon_sc_fifo           ; --         ;
 ; IP_TOOL_ENV                         ; qsys                                                                ; --            ; altera_merlin_burst_adapter     ; --         ;
 ; IP_TOOL_ENV                         ; qsys                                                                ; --            ; altera_merlin_master_agent      ; --         ;
@@ -84,6 +84,9 @@ applicable agreement for further details.
 ; IP_TOOL_ENV                         ; qsys                                                                ; --            ; altera_merlin_width_adapter     ; --         ;
 ; IP_TOOL_ENV                         ; qsys                                                                ; --            ; altera_reset_controller         ; --         ;
 ; IP_TOOL_ENV                         ; qsys                                                                ; --            ; nios_system                     ; --         ;
+; IP_TOOL_ENV                         ; qsys                                                                ; --            ; nios_system_Keys                ; --         ;
+; IP_TOOL_ENV                         ; qsys                                                                ; --            ; nios_system_LEDR                ; --         ;
+; IP_TOOL_ENV                         ; qsys                                                                ; --            ; nios_system_Switches            ; --         ;
 ; IP_TOOL_ENV                         ; qsys                                                                ; --            ; nios_system_addr_router         ; --         ;
 ; IP_TOOL_ENV                         ; qsys                                                                ; --            ; nios_system_addr_router_001     ; --         ;
 ; IP_TOOL_ENV                         ; qsys                                                                ; --            ; nios_system_addr_router_002     ; --         ;
@@ -120,6 +123,9 @@ applicable agreement for further details.
 ; IP_TOOL_NAME                        ; altera_merlin_width_adapter                                         ; --            ; altera_merlin_width_adapter     ; --         ;
 ; IP_TOOL_NAME                        ; altera_reset_controller                                             ; --            ; altera_reset_controller         ; --         ;
 ; IP_TOOL_NAME                        ; qsys                                                                ; --            ; nios_system                     ; --         ;
+; IP_TOOL_NAME                        ; altera_avalon_pio                                                   ; --            ; nios_system_Keys                ; --         ;
+; IP_TOOL_NAME                        ; altera_avalon_pio                                                   ; --            ; nios_system_LEDR                ; --         ;
+; IP_TOOL_NAME                        ; altera_avalon_pio                                                   ; --            ; nios_system_Switches            ; --         ;
 ; IP_TOOL_NAME                        ; altera_merlin_router                                                ; --            ; nios_system_addr_router         ; --         ;
 ; IP_TOOL_NAME                        ; altera_merlin_router                                                ; --            ; nios_system_addr_router_001     ; --         ;
 ; IP_TOOL_NAME                        ; altera_merlin_router                                                ; --            ; nios_system_addr_router_002     ; --         ;
@@ -156,6 +162,9 @@ applicable agreement for further details.
 ; IP_TOOL_VERSION                     ; 12.0                                                                ; --            ; altera_merlin_width_adapter     ; --         ;
 ; IP_TOOL_VERSION                     ; 12.0                                                                ; --            ; altera_reset_controller         ; --         ;
 ; IP_TOOL_VERSION                     ; 12.0sp2                                                             ; --            ; nios_system                     ; --         ;
+; IP_TOOL_VERSION                     ; 12.0                                                                ; --            ; nios_system_Keys                ; --         ;
+; IP_TOOL_VERSION                     ; 12.0                                                                ; --            ; nios_system_LEDR                ; --         ;
+; IP_TOOL_VERSION                     ; 12.0                                                                ; --            ; nios_system_Switches            ; --         ;
 ; IP_TOOL_VERSION                     ; 12.0                                                                ; --            ; nios_system_addr_router         ; --         ;
 ; IP_TOOL_VERSION                     ; 12.0                                                                ; --            ; nios_system_addr_router_001     ; --         ;
 ; IP_TOOL_VERSION                     ; 12.0                                                                ; --            ; nios_system_addr_router_002     ; --         ;
@@ -190,7 +199,7 @@ applicable agreement for further details.
 ; PARTITION_COLOR                     ; 16764057                                                            ; --            ; --                              ; Top        ;
 ; PARTITION_FITTER_PRESERVATION_LEVEL ; PLACEMENT_AND_ROUTING                                               ; --            ; --                              ; Top        ;
 ; PARTITION_NETLIST_TYPE              ; SOURCE                                                              ; --            ; --                              ; Top        ;
-; SLD_INFO                            ; QSYS_NAME nios_system HAS_SOPCINFO 1 GENERATION_ID 1358883679       ; --            ; nios_system                     ; --         ;
+; SLD_INFO                            ; QSYS_NAME nios_system HAS_SOPCINFO 1 GENERATION_ID 1361069804       ; --            ; nios_system                     ; --         ;
 ; SYNTHESIS_ONLY_QIP                  ; On                                                                  ; --            ; --                              ; --         ;
 +-------------------------------------+---------------------------------------------------------------------+---------------+---------------------------------+------------+
 
@@ -200,11 +209,11 @@ applicable agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:41     ; 1.0                     ; 467 MB              ; 00:00:41                           ;
-; Fitter                    ; 00:00:42     ; 1.0                     ; 540 MB              ; 00:00:42                           ;
-; Assembler                 ; 00:00:04     ; 1.0                     ; 344 MB              ; 00:00:04                           ;
-; TimeQuest Timing Analyzer ; 00:00:04     ; 1.0                     ; 374 MB              ; 00:00:04                           ;
-; Total                     ; 00:01:31     ; --                      ; --                  ; 00:01:31                           ;
+; Analysis & Synthesis      ; 00:00:58     ; 1.0                     ; 528 MB              ; 00:00:58                           ;
+; Fitter                    ; 00:00:56     ; 1.0                     ; 574 MB              ; 00:00:56                           ;
+; Assembler                 ; 00:00:04     ; 1.0                     ; 367 MB              ; 00:00:04                           ;
+; TimeQuest Timing Analyzer ; 00:00:05     ; 1.0                     ; 395 MB              ; 00:00:05                           ;
+; Total                     ; 00:02:03     ; --                      ; --                  ; 00:02:03                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
