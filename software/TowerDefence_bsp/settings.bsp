@@ -2,11 +2,11 @@
 <sch:Settings xmlns:sch="http://www.altera.com/embeddedsw/bsp/schema">
         <BspType>hal</BspType>
         <BspVersion>default</BspVersion>
-        <BspGeneratedTimeStamp>Jan 22, 2013 5:20:48 PM</BspGeneratedTimeStamp>
-        <BspGeneratedUnixTimeStamp>1358904048296</BspGeneratedUnixTimeStamp>
-        <BspGeneratedLocation>C:\Users\Danny\Desktop\EECE381\bearded-octo-sansa\software\TowerDefence_bsp</BspGeneratedLocation>
+        <BspGeneratedTimeStamp>17-Feb-2013 8:55:03 PM</BspGeneratedTimeStamp>
+        <BspGeneratedUnixTimeStamp>1361163303706</BspGeneratedUnixTimeStamp>
+        <BspGeneratedLocation>C:\Users\danny\Documents\GitHub\Project1\bearded-octo-sansa\software\EarthDefence_bsp</BspGeneratedLocation>
         <BspSettingsFile>settings.bsp</BspSettingsFile>
-        <SopcDesignFile>C:\Users\Danny\Desktop\EECE381\bearded-octo-sansa\nios_system.sopcinfo</SopcDesignFile>
+        <SopcDesignFile>C:\Users\danny\Documents\GitHub\Project1\bearded-octo-sansa\nios_system.sopcinfo</SopcDesignFile>
         <JdiFile>default</JdiFile>
         <Cpu>nios2_processor</Cpu>
         <SchemaVersion>1.9</SchemaVersion>
@@ -899,15 +899,87 @@
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
+                <slaveDescriptor>Switches</slaveDescriptor>
+                <addressRange>0x01083460 - 0x0108346F</addressRange>
+                <addressSpan>16</addressSpan>
+                <attributes/>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>Keys</slaveDescriptor>
+                <addressRange>0x01083470 - 0x0108347F</addressRange>
+                <addressSpan>16</addressSpan>
+                <attributes/>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>audio_and_video_config_0</slaveDescriptor>
+                <addressRange>0x01083480 - 0x0108348F</addressRange>
+                <addressSpan>16</addressSpan>
+                <attributes/>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>audio</slaveDescriptor>
+                <addressRange>0x01083490 - 0x0108349F</addressRange>
+                <addressSpan>16</addressSpan>
+                <attributes/>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>LEDR</slaveDescriptor>
+                <addressRange>0x010834A0 - 0x010834AF</addressRange>
+                <addressSpan>16</addressSpan>
+                <attributes/>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>hex0</slaveDescriptor>
+                <addressRange>0x010834B0 - 0x010834BF</addressRange>
+                <addressSpan>16</addressSpan>
+                <attributes/>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>hex1</slaveDescriptor>
+                <addressRange>0x010834C0 - 0x010834CF</addressRange>
+                <addressSpan>16</addressSpan>
+                <attributes/>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>hex2</slaveDescriptor>
+                <addressRange>0x010834D0 - 0x010834DF</addressRange>
+                <addressSpan>16</addressSpan>
+                <attributes/>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>hex3</slaveDescriptor>
+                <addressRange>0x010834E0 - 0x010834EF</addressRange>
+                <addressSpan>16</addressSpan>
+                <attributes/>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>hex4</slaveDescriptor>
+                <addressRange>0x010834F0 - 0x010834FF</addressRange>
+                <addressSpan>16</addressSpan>
+                <attributes/>
+        </MemoryMap>
+        <MemoryMap>
                 <slaveDescriptor>jtag_uart</slaveDescriptor>
-                <addressRange>0x01083460 - 0x01083467</addressRange>
+                <addressRange>0x01083500 - 0x01083507</addressRange>
                 <addressSpan>8</addressSpan>
                 <attributes>printable</attributes>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>char_drawer_avalon_char_control_slave</slaveDescriptor>
-                <addressRange>0x01083468 - 0x0108346F</addressRange>
+                <addressRange>0x01083508 - 0x0108350F</addressRange>
                 <addressSpan>8</addressSpan>
+                <attributes/>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>ps2_0</slaveDescriptor>
+                <addressRange>0x01083510 - 0x01083517</addressRange>
+                <addressSpan>8</addressSpan>
+                <attributes/>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>character_lcd_0</slaveDescriptor>
+                <addressRange>0x01083518 - 0x01083519</addressRange>
+                <addressSpan>2</addressSpan>
                 <attributes/>
         </MemoryMap>
         <LinkerSection>

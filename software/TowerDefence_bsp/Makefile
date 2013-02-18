@@ -101,7 +101,7 @@ ACDS_VERSION := 12.0sp2
 # BUILD_NUMBER: 263
 
 SETTINGS_FILE := settings.bsp
-SOPC_FILE := C:/Users/Danny/Desktop/EECE381/bearded-octo-sansa/nios_system.sopcinfo
+SOPC_FILE := C:/Users/danny/Documents/GitHub/Project1/bearded-octo-sansa/nios_system.sopcinfo
 
 #-------------------------------------------------------------------------------
 #                             TOOL & COMMAND DEFINITIONS
@@ -215,6 +215,20 @@ Altera_UP_SD_Card_Avalon_Interface_driver_SRCS_ROOT := drivers
 Altera_UP_SD_Card_Avalon_Interface_driver_C_LIB_SRCS := \
 	$(Altera_UP_SD_Card_Avalon_Interface_driver_SRCS_ROOT)/src/altera_up_sd_card_avalon_interface.c
 
+# avalon_audio_and_video_driver sources root 
+Avalon_Audio_and_Video_driver_SRCS_ROOT := drivers
+
+# avalon_audio_and_video_driver sources 
+Avalon_Audio_and_Video_driver_C_LIB_SRCS := \
+	$(Avalon_Audio_and_Video_driver_SRCS_ROOT)/src/altera_up_avalon_audio_and_video_config.c
+
+# avalon_audio_driver sources root 
+Avalon_Audio_driver_SRCS_ROOT := drivers
+
+# avalon_audio_driver sources 
+Avalon_Audio_driver_C_LIB_SRCS := \
+	$(Avalon_Audio_driver_SRCS_ROOT)/src/altera_up_avalon_audio.c
+
 # altera_avalon_jtag_uart_driver sources root 
 altera_avalon_jtag_uart_driver_SRCS_ROOT := drivers
 
@@ -281,6 +295,13 @@ altera_up_avalon_video_character_buffer_with_dma_driver_SRCS_ROOT := drivers
 altera_up_avalon_video_character_buffer_with_dma_driver_C_LIB_SRCS := \
 	$(altera_up_avalon_video_character_buffer_with_dma_driver_SRCS_ROOT)/src/altera_up_avalon_video_character_buffer_with_dma.c
 
+# avalon_character_lcd_driver sources root 
+avalon_character_lcd_driver_SRCS_ROOT := drivers
+
+# avalon_character_lcd_driver sources 
+avalon_character_lcd_driver_C_LIB_SRCS := \
+	$(avalon_character_lcd_driver_SRCS_ROOT)/src/altera_up_avalon_character_lcd.c
+
 # avalon_video_pixel_buffer_dma_driver sources root 
 avalon_video_pixel_buffer_dma_driver_SRCS_ROOT := drivers
 
@@ -346,16 +367,29 @@ hal_C_LIB_SRCS := \
 	$(hal_SRCS_ROOT)/src/alt_wait.c \
 	$(hal_SRCS_ROOT)/src/alt_write.c
 
+# up_avalon_ps2_driver sources root 
+up_avalon_ps2_driver_SRCS_ROOT := drivers
+
+# up_avalon_ps2_driver sources 
+up_avalon_ps2_driver_C_LIB_SRCS := \
+	$(up_avalon_ps2_driver_SRCS_ROOT)/src/altera_up_avalon_ps2.c \
+	$(up_avalon_ps2_driver_SRCS_ROOT)/src/altera_up_ps2_keyboard.c \
+	$(up_avalon_ps2_driver_SRCS_ROOT)/src/altera_up_ps2_mouse.c
+
 
 # Assemble all component C source files 
 COMPONENT_C_LIB_SRCS += \
 	$(Altera_UP_SD_Card_Avalon_Interface_driver_C_LIB_SRCS) \
+	$(Avalon_Audio_and_Video_driver_C_LIB_SRCS) \
+	$(Avalon_Audio_driver_C_LIB_SRCS) \
 	$(altera_avalon_jtag_uart_driver_C_LIB_SRCS) \
 	$(altera_avalon_timer_driver_C_LIB_SRCS) \
 	$(altera_nios2_qsys_hal_driver_C_LIB_SRCS) \
 	$(altera_up_avalon_video_character_buffer_with_dma_driver_C_LIB_SRCS) \
+	$(avalon_character_lcd_driver_C_LIB_SRCS) \
 	$(avalon_video_pixel_buffer_dma_driver_C_LIB_SRCS) \
-	$(hal_C_LIB_SRCS)
+	$(hal_C_LIB_SRCS) \
+	$(up_avalon_ps2_driver_C_LIB_SRCS)
 
 # Assemble all component assembly source files 
 COMPONENT_ASM_LIB_SRCS += \

@@ -87,11 +87,11 @@ ACDS_VERSION := 12.0sp2
 
 # Quartus Generated JDI File. Required for resolving node instance ID's with 
 # design component names. 
-JDI_FILE := C:/Users/Danny/Desktop/EECE381/bearded-octo-sansa/TowerDefence.jdi
+JDI_FILE := C:/Users/danny/Documents/GitHub/Project1/bearded-octo-sansa/TowerDefence.jdi
 
 # Qsys--generated SOPCINFO file. Required for resolving node instance ID's with 
 # design component names. 
-SOPCINFO_FILE := C:/Users/Danny/Desktop/EECE381/bearded-octo-sansa/nios_system.sopcinfo
+SOPCINFO_FILE := C:/Users/danny/Documents/GitHub/Project1/bearded-octo-sansa/nios_system.sopcinfo
 
 # Big-Endian operation. 
 # setting BIG_ENDIAN is false

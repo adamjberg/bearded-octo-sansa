@@ -139,16 +139,37 @@ ACDS_VERSION := 12.0sp2
 # Define path to the application ELF. 
 # It may be used by the makefile fragments so is defined before including them. 
 # 
-ELF := TowerDefence.elf
+ELF := EarthDefence.elf
 
 # Paths to C, C++, and assembly source files.
+C_SRCS += Alien.c
+C_SRCS += AudioController.c
+C_SRCS += BitOperations.c
+C_SRCS += Box3D.c
+C_SRCS += Bullet.c
+C_SRCS += BulletCollection.c
+C_SRCS += Button.c
+C_SRCS += Collidable.c
+C_SRCS += Cursor.c
+C_SRCS += CursorController.c
 C_SRCS += Env.c
-C_SRCS += Object.c
-C_SRCS += animation.c
-C_SRCS += hardCode.c
-C_SRCS += Game.c
 C_SRCS += Frame.c
+C_SRCS += Game.c
 C_SRCS += GameInfo.c
+C_SRCS += HighScoreScreen.c
+C_SRCS += Interface.c
+C_SRCS += KeyController.c
+C_SRCS += Node.c
+C_SRCS += Object.c
+C_SRCS += QuardTree.c
+C_SRCS += Sound.c
+C_SRCS += SpaceShip.c
+C_SRCS += SwitchController.c
+C_SRCS += TowerPlacer.c
+C_SRCS += UnitTest.c
+C_SRCS += animation.c
+C_SRCS += audio_ISR.c
+C_SRCS += hardCode.c
 CXX_SRCS :=
 ASM_SRCS :=
 
@@ -183,7 +204,7 @@ CRT0 :=
 SYS_LIB :=
 
 # Define path to the root of the BSP.
-BSP_ROOT_DIR := ../TowerDefence_bsp/
+BSP_ROOT_DIR := ../EarthDefence_bsp/
 
 # List of application specific include directories, library directories and library names
 APP_INCLUDE_DIRS :=

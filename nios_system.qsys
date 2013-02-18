@@ -300,11 +300,19 @@
          type = "int";
       }
    }
-   element LEDR.s1
+   element hex2.s1
    {
       datum baseAddress
       {
-         value = "17314976";
+         value = "17315024";
+         type = "long";
+      }
+   }
+   element hex0.s1
+   {
+      datum baseAddress
+      {
+         value = "17314992";
          type = "long";
       }
    }
@@ -316,6 +324,14 @@
          type = "long";
       }
    }
+   element sdram.s1
+   {
+      datum baseAddress
+      {
+         value = "8388608";
+         type = "long";
+      }
+   }
    element timestamp.s1
    {
       datum baseAddress
@@ -324,11 +340,11 @@
          type = "long";
       }
    }
-   element hex0.s1
+   element leds.s1
    {
       datum baseAddress
       {
-         value = "17314992";
+         value = "17314896";
          type = "long";
       }
    }
@@ -345,11 +361,19 @@
          type = "long";
       }
    }
-   element leds.s1
+   element LEDR.s1
    {
       datum baseAddress
       {
-         value = "17314896";
+         value = "17314976";
+         type = "long";
+      }
+   }
+   element hex1.s1
+   {
+      datum baseAddress
+      {
+         value = "17315008";
          type = "long";
       }
    }
@@ -361,30 +385,6 @@
          type = "long";
       }
    }
-   element Switches.s1
-   {
-      datum baseAddress
-      {
-         value = "17314912";
-         type = "long";
-      }
-   }
-   element sdram.s1
-   {
-      datum baseAddress
-      {
-         value = "8388608";
-         type = "long";
-      }
-   }
-   element hex2.s1
-   {
-      datum baseAddress
-      {
-         value = "17315024";
-         type = "long";
-      }
-   }
    element Keys.s1
    {
       datum baseAddress
@@ -393,11 +393,11 @@
          type = "long";
       }
    }
-   element hex1.s1
+   element Switches.s1
    {
       datum baseAddress
       {
-         value = "17315008";
+         value = "17314912";
          type = "long";
       }
    }
@@ -477,7 +477,7 @@
  <parameter name="projectName" value="TowerDefence.qpf" />
  <parameter name="sopcBorderPoints" value="false" />
  <parameter name="systemHash" value="1" />
- <parameter name="timeStamp" value="1361069771619" />
+ <parameter name="timeStamp" value="1361159997057" />
  <parameter name="useTestBenchNamingPattern" value="false" />
  <instanceScript></instanceScript>
  <interface name="clk" internal="clk_0.clk_in" type="clock" dir="end" />

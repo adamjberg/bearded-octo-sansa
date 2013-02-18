@@ -12,11 +12,18 @@
 
 struct Env {
 	struct Object** o;
-	int size, start;
+	int size;
 	int coord[2];
+	struct Collidable* col;
+	struct Cursor* m;
+	bool redraw;
 };
 
 struct Env* initEnv();
+void addCollisionToEnv(struct Env*, struct Collidable*);
 void addToEnv(struct Env*, struct Object*);
-int removeFromEnv(struct Env*, struct Object*);
+void addToEnvNR(struct Env*, struct Object*);
+void removeFromEnv(struct Env*, struct Object*);
+void removeFromEnvOnly(struct Env*, struct Object*);
+void setCursor(struct Env*, struct Cursor*);
 #endif /* ENV_H_ */
