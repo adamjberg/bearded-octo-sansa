@@ -255,6 +255,12 @@ void displayString(char* string, int x, int y) {
 	alt_up_char_buffer_clear(char_buffer);
 	alt_up_char_buffer_string(char_buffer, string, x, y);
 }
+
+/*
+ * Wait user to insert the SD card and animate pacman graphics
+ * @param p environment variable
+ * @param device_reference SD card device
+ */
 void promptSDcard(struct Env* p, alt_up_sd_card_dev* device_reference) {
 	/*
 	 * Loading Screen if SD card is not presented
@@ -294,37 +300,43 @@ int main()
 	// Use the name of your pixel buffer DMA core
 	pixel_buffer =alt_up_pixel_buffer_dma_open_dev("/dev/pixel_buffer_dma_0");
 
-	initVGA();
+	initVGA(); //VGA initialization
+
+	//PS2 Mouse initialization
 	usleep(5000000);
 	ps2 = alt_up_ps2_open_dev("/dev/ps2_0");
 	ps2->timeout = 2000000;
-		alt_up_ps2_clear_fifo(ps2);
-		alt_up_ps2_init(ps2);
+	alt_up_ps2_clear_fifo(ps2);
+	alt_up_ps2_init(ps2);
+	unsigned char byte1;
+	while(alt_up_ps2_read_data_byte(ps2, &byte1)!=0);
 
-		unsigned char byte1;
-		while(alt_up_ps2_read_data_byte(ps2, &byte1)!=0);
-
+	//on-board LCD initialization
 	char_lcd_dev = alt_up_character_lcd_open_dev ("/dev/character_lcd_0");
 	alt_up_character_lcd_init (char_lcd_dev);
 
+	//text on screen initialization
 	char_buffer  = alt_up_char_buffer_open_dev("/dev/char_drawer");
 	alt_up_char_buffer_init(char_buffer);
 
+	//SD device initialization
 	alt_up_sd_card_dev *device_reference = NULL;
-	struct Env* p = initEnv();
+
+	struct Env* p = initEnv(); //set up the environment
 	initGameInfo();
 
+	//set up collision detector
 	struct Collidable* collisionChecker = initCollidable();
 	addCollisionToEnv(p, collisionChecker);
 
-	promptSDcard(p, device_reference);
+	promptSDcard(p, device_reference); //wait user to insert SD card
 
 	usleep(1000);
+
+	//Loading all images
 	alt_up_char_buffer_string(char_buffer, "Loading ", 40, 30);
-
-	  unsigned end_time, start_time;
-	  int count = 0; lock = 0;
-
+	unsigned end_time, start_time;
+	int count = 0; lock = 0;
 	struct animation* starAnimation = loadSDImageSeq("ST0.BMP", 2, 8);
 	struct animation* star2Animation = loadSDImageSeq("ST00.BMP", 3, 7);
 	struct animation* alien0 = loadSDImageSeq("A100.BMP", 2, 2); //2 images where first 2 characters are prefix
@@ -335,13 +347,11 @@ int main()
 	struct animation* ship2 = loadSDImageSeq("S20.BMP", 2, 35);
 	struct animation* ship3 = loadSDImageSeq("S30.BMP", 2, 30);
 	struct animation* ship4 = loadSDImageSeq("S40.BMP", 2, 10);
-
 	struct animation* explode1 = initAnimation((int*)explode01, 1);
 	addImage(explode1, initAnimation((int*)explode02, 0));
 	addImage(explode1, initAnimation((int*)explode03, 0));
 	addImage(explode1, initAnimation((int*)explode04, 0));
 	addImage(explode1, initAnimation((int*)explode05, 0));
-
 	struct animation** shipAnimationCollection = (struct animation**)malloc(sizeof(struct animation*)*5);
 	shipAnimationCollection[0] = ship0;
 	shipAnimationCollection[1] = ship1;
@@ -351,15 +361,18 @@ int main()
 
 	initWeapon(collisionChecker, p);
 
+	//cursor initialization
 	struct Cursor* mouse = initCursor(p, collisionChecker);
 	addToEnv(p, mouse->super);
 	addObjToCollide(collisionChecker, mouse->super);
 	setCursor(p, mouse);
 
+	//controllers initialization
 	struct KeyController* keyController = initKeyController();
 	struct SwitchController* switchController = initSwitchController();
 	struct CursorController* ctrl = initCursorController(mouse->super, switchController, keyController);
 
+	//loading sound files and start audio interrupt
 	alt_up_char_buffer_string(char_buffer, "Loading Sounds            ", 30, 30);
 	audioController = initAudioController();
 	loadSound( audioController, LOOP_ONE );
@@ -369,10 +382,11 @@ int main()
 	play_background_loop( audioController, LOOP_ONE );
 	enableAudioController( audioController );
 
-	printhex(info.score);
+	printhex(info.score); //print score on 7 segment
 
 	mainMenu(mouse, ctrl, p);
 
+	//stop audio interrupt and reload sound files for game
 	disableAudioController(audioController);
 	stop_background_loop(audioController);
 	unloadSoundById(audioController, LASER_SOUND);
@@ -385,16 +399,13 @@ int main()
 	play_background_loop(audioController, LOOP_TWO);
 	enableAudioController( audioController );
 	alt_up_char_buffer_clear(char_buffer);
-	//usleep(1000);
+
+	//game and aliens initialization
 	struct Alien* testAlienCollection[60];
 	gameSetup(p, shipAnimationCollection, mouse, starAnimation, star2Animation);
-
 	usleep(500000); //time delay for panel to be drawn
-//
 	char LPS[50]; float lps_;
-
 	int n = 0;
-
 	for(n = 0; n < 20; n++) {
 		testAlienCollection[n] =initAlien(n, 10*n, 10, alien0, explode1, "IdontKnow", 1.4, 150, 500, collisionChecker);
 		addToEnvNR(p, testAlienCollection[n]->super);
@@ -565,7 +576,12 @@ void checkStages(struct Alien** aliens, int stage, struct Collidable* col) {
 		break;
 	}
 }
-
+/*
+ * Main menu page with three dimensional space and boxes
+ * @param mouse cursor
+ * @param ctrl cursor controller
+ * @parm p environment
+ */
 void mainMenu(struct Cursor* mouse, struct CursorController* ctrl, struct Env* p) {
 	cameraX = 160; cameraY = 120;
 	cameraZ = 320;
@@ -587,15 +603,6 @@ void mainMenu(struct Cursor* mouse, struct CursorController* ctrl, struct Env* p
 		int* introPage;
 		while(!loadSDImage("INTR.BMP", &introPage));
 		while(info.start == 1){
-			//Swap background and foreground buffers
-	//	  	alt_up_pixel_buffer_dma_swap_buffers(pixel_buffer);
-		  	//Wait for the swap to complete
-		//  	while(alt_up_pixel_buffer_dma_check_swap_buffers_status(pixel_buffer));
-		  //	alt_up_pixel_buffer_dma_clear_screen(pixel_buffer, 0);
-		  	//draw_nontransparent(mainpage->x, mainpage->y, mainpage->currImg->image,140, mouse);
-		  //	mainpage->currImg = mainpage->currImg->next;
-		//	i++;
-
 
 		  	animateBox0(box);
 		  	if(animateBox1(box1)) {
@@ -676,12 +683,7 @@ void mainMenu(struct Cursor* mouse, struct CursorController* ctrl, struct Env* p
 					updateBox3D(box);
 					updateBox3D(box1);
 					updateBox3D(box2);
-				/*	setXY(mouse->curr_page->buttons[0]->super, cameraX + (box->x-cameraX)*cameraZ/(cameraZ+box->z), cameraY - (cameraY-box->y)*cameraZ/(cameraZ+box->z));
-				  	drawTxtButton(mouse->curr_page->buttons[0], mouse);
-				  	setXY(mouse->curr_page->buttons[1]->super, cameraX + (box1->x-cameraX)*cameraZ/(cameraZ+box1->z), cameraY - (cameraY-box1->y)*cameraZ/(cameraZ+box1->z));
-				  	drawTxtButton(mouse->curr_page->buttons[1], mouse);
-				  	setXY(mouse->curr_page->buttons[2]->super, cameraX + (box2->x-cameraX)*cameraZ/(cameraZ+box2->z), cameraY - (cameraY-box2->y)*cameraZ/(cameraZ+box2->z));
-				  	drawTxtButton(mouse->curr_page->buttons[2], mouse);*/
+
 				}
 				if(isKeyDown(2)){
 					if(cameraX < 315)
@@ -689,12 +691,6 @@ void mainMenu(struct Cursor* mouse, struct CursorController* ctrl, struct Env* p
 					updateBox3D(box);
 					updateBox3D(box1);
 					updateBox3D(box2);
-				/*	setXY(mouse->curr_page->buttons[0]->super, cameraX + (box->x-cameraX)*cameraZ/(cameraZ+box->z), cameraY - (cameraY-box->y)*cameraZ/(cameraZ+box->z));
-					drawTxtButton(mouse->curr_page->buttons[0], mouse);
-					setXY(mouse->curr_page->buttons[1]->super, cameraX + (box1->x-cameraX)*cameraZ/(cameraZ+box1->z), cameraY - (cameraY-box1->y)*cameraZ/(cameraZ+box1->z));
-					drawTxtButton(mouse->curr_page->buttons[1], mouse);
-					setXY(mouse->curr_page->buttons[2]->super, cameraX + (box2->x-cameraX)*cameraZ/(cameraZ+box2->z), cameraY - (cameraY-box2->y)*cameraZ/(cameraZ+box2->z));
-					drawTxtButton(mouse->curr_page->buttons[2], mouse);*/
 
 				}
 				if(isKeyDown(1)){
@@ -703,13 +699,6 @@ void mainMenu(struct Cursor* mouse, struct CursorController* ctrl, struct Env* p
 					updateBox3D(box);
 					updateBox3D(box1);
 					updateBox3D(box2);
-			/*		setXY(mouse->curr_page->buttons[0]->super, cameraX + (box->x-cameraX)*cameraZ/(cameraZ+box->z), cameraY - (cameraY-box->y)*cameraZ/(cameraZ+box->z));
-					drawTxtButton(mouse->curr_page->buttons[0], mouse);
-					setXY(mouse->curr_page->buttons[1]->super, cameraX + (box1->x-cameraX)*cameraZ/(cameraZ+box1->z), cameraY - (cameraY-box1->y)*cameraZ/(cameraZ+box1->z));
-					drawTxtButton(mouse->curr_page->buttons[1], mouse);
-					setXY(mouse->curr_page->buttons[2]->super, cameraX + (box2->x-cameraX)*cameraZ/(cameraZ+box2->z), cameraY - (cameraY-box2->y)*cameraZ/(cameraZ+box2->z));
-					drawTxtButton(mouse->curr_page->buttons[2], mouse);*/
-					//setXY(startButton->super, cameraX + (box->x-cameraX)*cameraZ/(cameraZ+box->z), cameraY - (cameraY-box->y)*cameraZ/(cameraZ+box->z));
 
 				}
 				if(isKeyDown(0)){
@@ -718,12 +707,6 @@ void mainMenu(struct Cursor* mouse, struct CursorController* ctrl, struct Env* p
 					updateBox3D(box);
 					updateBox3D(box1);
 					updateBox3D(box2);
-				/*	setXY(mouse->curr_page->buttons[0]->super, cameraX + (box->x-cameraX)*cameraZ/(cameraZ+box->z), cameraY - (cameraY-box->y)*cameraZ/(cameraZ+box->z));
-					drawTxtButton(mouse->curr_page->buttons[0], mouse);
-					setXY(mouse->curr_page->buttons[1]->super, cameraX + (box1->x-cameraX)*cameraZ/(cameraZ+box1->z), cameraY - (cameraY-box1->y)*cameraZ/(cameraZ+box1->z));
-					drawTxtButton(mouse->curr_page->buttons[1], mouse);
-					setXY(mouse->curr_page->buttons[2]->super, cameraX + (box2->x-cameraX)*cameraZ/(cameraZ+box2->z), cameraY - (cameraY-box2->y)*cameraZ/(cameraZ+box2->z));
-					drawTxtButton(mouse->curr_page->buttons[2], mouse);*/
 
 				}
 				usleep(5000);
@@ -806,6 +789,11 @@ void endGame(struct Alien** aliens, struct Collidable* col, struct Env* env, str
 		waveLEDR();
 	}
 }
+/*
+ * Initialze all weapons that will be used for spaceship
+ * @param collisionChecker collision detector
+ * @param p environment
+ */
 void initWeapon(struct Collidable* collisionChecker, struct Env* p) {
 	struct animation* bulletImage = initAnimation(star, 1);
 	struct animation* bullet4Image = loadSDImageSeq("W00.BMP", 2, 30); // fire bomb

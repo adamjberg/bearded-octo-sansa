@@ -37,6 +37,5 @@ void draw_nontransparent( int, int, int*, int, struct Cursor*);
 void cleanDrawing(int, int, int*, int, struct Cursor*);
 void animated(struct animation**, int, int, int, int, struct Object*, struct Cursor*);
 void killAnimation(struct animation*);
-void droxBox(int, int, int, int, int, struct Cursor*);
 void drawRec(int, int, int*, int, int);
 #endif /* ANIMATION_H_ */
